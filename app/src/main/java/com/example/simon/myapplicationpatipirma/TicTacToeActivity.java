@@ -90,7 +90,7 @@ public class TicTacToeActivity extends AppCompatActivity  {
         setBoard();
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuItem item = menu.add("New Game");
@@ -100,7 +100,7 @@ public class TicTacToeActivity extends AppCompatActivity  {
     public boolean onOptionsItemSelected(MenuItem item) {
         setBoard();
         return true;
-    }
+    }*/
 
     //0 is for nulls, 1 is for x and 2 is for none
     // Set up the game board.
@@ -253,9 +253,10 @@ public class TicTacToeActivity extends AppCompatActivity  {
                 || (c[3][1] == 0 && c[3][2] == 0 && c[3][3] == 0)
                 || (c[1][1] == 0 && c[2][1] == 0 && c[3][1] == 0)) {
             textView.setText("GAME OVER. YOU WIN!");
-            //vibracija
+            //vibration
             ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(600);
             gameOver = true;
+            makeUnclicable();
         } else if ((c[1][1] == 1 && c[2][2] == 1 && c[3][3] == 1)
                 || (c[1][3] == 1 && c[2][2] == 1 && c[3][1] == 1)
                 || (c[1][2] == 1 && c[2][2] == 1 && c[3][2] == 1)
@@ -265,8 +266,9 @@ public class TicTacToeActivity extends AppCompatActivity  {
                 || (c[3][1] == 1 && c[3][2] == 1 && c[3][3] == 1)
                 || (c[1][1] == 1 && c[2][1] == 1 && c[3][1] == 1)) {
             textView.setText("GAME OVER. YOU LOSE!");
-            //vibracija
+            //vibration
             ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(600);
+            makeUnclicable();
             gameOver = true;
         } else {
             boolean empty = false;
@@ -281,11 +283,21 @@ public class TicTacToeActivity extends AppCompatActivity  {
             if(!empty) {
                 gameOver = true;
                 textView.setText("GAME OVER. DRAW!");
-                //vibracija
+                //vibration
                 ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(600);
             }
         }
         return gameOver;
     }
+
+    //makes all the buttons unclicable
+    public void makeUnclicable(){
+        for (i = 1; i <= 3; i++) {
+            for (j = 1; j <= 3; j++) {
+                    b[i][j].setClickable(false);
+            }
+        }
+    }
+
 }
 

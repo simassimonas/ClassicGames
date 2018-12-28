@@ -7,12 +7,13 @@ import android.view.View;
 import android.widget.ImageButton;
 
 public class ChooseGameActivity extends AppCompatActivity {
-    ImageButton btnToRPSGame, btnToTicTacToeGame;
+    ImageButton btnToRPSGame, btnToTicTacToeGame, btnToMemoryGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_game);
+
 
         btnToRPSGame = (ImageButton) findViewById(R.id.btnRPSGame);
         btnToRPSGame.setOnClickListener(new View.OnClickListener() {
@@ -28,6 +29,15 @@ public class ChooseGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ChooseGameActivity.this,TicTacToeActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnToMemoryGame = (ImageButton) findViewById(R.id.btnMemoryGame);
+        btnToMemoryGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ChooseGameActivity.this,MemoryGameActivity.class);
                 startActivity(i);
             }
         });
