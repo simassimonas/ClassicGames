@@ -36,9 +36,16 @@ public class MemoryGameActivity extends AppCompatActivity {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                playerNumber= Integer.valueOf(enterNumber.getText().toString());
-                //checking if the answer is correct
-                isCorrcetNumber();
+                //checkin if there is any number written in the text field
+                String input = enterNumber.getText().toString();
+                if(input.isEmpty()){
+                    enterNumber.setHint("Please enter the number");
+                }
+                else{
+                    playerNumber= Integer.valueOf(enterNumber.getText().toString());
+                    //checking if the answer is correct
+                    isCorrcetNumber();
+                }
             }
         });
 
@@ -54,6 +61,7 @@ public class MemoryGameActivity extends AppCompatActivity {
 
         //rr button
         btnRR = (ImageButton) findViewById(R.id.btnRR);
+        btnRR.setVisibility(View.INVISIBLE);
         btnRR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +69,8 @@ public class MemoryGameActivity extends AppCompatActivity {
                 generateNumber();
                 tvAnswer = (TextView) findViewById(R.id.tvAnswer);
                 tvAnswer.setText("");
+                btnRR.setVisibility(View.INVISIBLE);
+                enterNumber.setHint("enter the number");
             }
         });
 
@@ -115,6 +125,8 @@ public class MemoryGameActivity extends AppCompatActivity {
         if(Number==playerNumber){
             level++;
             tvAnswer.setText("CORRECT ANSWER");
+            enterNumber = (EditText) findViewById(R.id.enterNumber);
+            enterNumber.setHint("enter the number");
             //makes the boxes invisible
             btnOk.setVisibility(View.INVISIBLE);
             enterNumber.setVisibility(View.INVISIBLE);
@@ -142,6 +154,8 @@ public class MemoryGameActivity extends AppCompatActivity {
             //clears the text field
             enterNumber = (EditText) findViewById(R.id.enterNumber);
             enterNumber.getText().clear();
+            btnRR = (ImageButton) findViewById(R.id.btnRR);
+            btnRR.setVisibility(View.VISIBLE);
         }
 
     }

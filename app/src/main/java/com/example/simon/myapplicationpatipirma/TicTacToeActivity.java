@@ -102,7 +102,7 @@ public class TicTacToeActivity extends AppCompatActivity  {
         return true;
     }*/
 
-    //0 is for nulls, 1 is for x and 2 is for none
+    //0 is for nulls, 1 is for x and 2 is for none.
     // Set up the game board.
     private void setBoard() {
         ai = new AI();
