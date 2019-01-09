@@ -14,7 +14,6 @@ import android.view.View;
 public class SnakeActivity extends AppCompatActivity {
 
     SnakeEngine snakeEngine;
-    ImageButton btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +27,6 @@ public class SnakeActivity extends AppCompatActivity {
         snakeEngine = new SnakeEngine(this, size);
         setContentView(snakeEngine);
 
-        //back button
-        btnBack = (ImageButton) findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(SnakeActivity.this,ChooseGameActivity.class);
-                startActivity(i);
-            }
-        });
     }
 
     @Override
