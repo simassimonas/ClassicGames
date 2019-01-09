@@ -22,7 +22,11 @@
         <activity android:name=".ChooseGameActivity" />
         <activity android:name=".RockPaperScissorsActivity" />
         <activity android:name=".TicTacToeActivity" />
-        <activity android:name=".MemoryGameActivity"></activity>
+        <activity android:name=".MemoryGameActivity" />
+        <activity
+            android:name=".SnakeActivity"
+            android:label="@string/title_activity_snake"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

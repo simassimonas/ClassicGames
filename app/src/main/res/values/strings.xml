@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application pati pirma</string>
     <string name="password">password</string>
+    <string name="title_activity_snake">SnakeActivity</string>
 </resources>

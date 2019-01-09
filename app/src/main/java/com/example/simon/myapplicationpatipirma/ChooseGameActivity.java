@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 public class ChooseGameActivity extends AppCompatActivity {
-    ImageButton btnToRPSGame, btnToTicTacToeGame, btnToMemoryGame;
+    ImageButton btnToRPSGame, btnToTicTacToeGame, btnToMemoryGame, btnSnakeGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,15 @@ public class ChooseGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ChooseGameActivity.this,MemoryGameActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnSnakeGame = (ImageButton) findViewById(R.id.btnSnakeGame);
+        btnSnakeGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ChooseGameActivity.this,SnakeActivity.class);
                 startActivity(i);
             }
         });
